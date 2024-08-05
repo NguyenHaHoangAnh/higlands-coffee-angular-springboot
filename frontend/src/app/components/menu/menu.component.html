@@ -1,0 +1,12 @@
+<div class="relative parent">
+    <div>
+        <ng-content />
+    </div>
+    <div class="absolute right-0 mt-4 py-4 min-w-[200px] bg-white rounded-[4px] shadow-[0_0_4px_4px_rgba(0,0,0,0.05)] transition-all duration-[0.3s] ease-linear child">
+        <div class=" [&:last-child]:border-t [&:last-child]:border-solid [&:last-child]:border-[var(--border-color)]" *ngFor="let item of data">
+            <app-button class="[&>button]:!text-left block w-full transition-all duration-[0.3s] ease-linear [&>button]:w-full  hover:bg-[var(--hover-color)] [&>button]:!normal-case menu-btn" [to]="item.to" (onClick)="handleChange(item)">
+                {{item.name}}
+            </app-button>
+        </div>
+    </div>
+</div>

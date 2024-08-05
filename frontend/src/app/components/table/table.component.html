@@ -1,0 +1,14 @@
+<div class="w-full min-h-[300px] overflow-x-scroll [&::-webkit-scrollbar]:block [&::-webkit-scrollbar]:h-[8px]">
+    <table class="w-full whitespace-nowrap cursor-default">
+        <thead class="[&>tr>th:last-child]:sticky [&>tr>th:last-child]:right-0 [&>tr>th:last-child]:bg-white">
+            <tr>
+                <th class="p-[10px] text-left first:text-center last:text-center" *ngFor="let header of headers">
+                    {{header}}
+                </th>
+            </tr>
+        </thead>
+        <tbody class="[&>tr>td:last-child]:sticky [&>tr>td:last-child]:right-0 [&>tr>td:last-child]:bg-white [&>tr]:transition-all [&>tr]:duration-[0.3s] [&>tr]:ease-linear [&>tr>td]:transition-all [&>tr>td]:duration-[0.3s] [&>tr>td]:ease-linear [&>tr:hover]:bg-[var(--hover-color)] [&>tr:hover>td:last-child]:bg-[var(--hover-color)]">
+            <ng-content />
+        </tbody>
+    </table>
+</div>

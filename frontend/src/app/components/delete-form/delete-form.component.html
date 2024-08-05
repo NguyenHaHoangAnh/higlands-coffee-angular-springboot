@@ -1,0 +1,21 @@
+<div>
+    <h3 class="my-[32px] text-[18px] text-center">Bạn có chắc chắn muốn xóa 
+        <strong>"{{data.name}}"</strong>
+    </h3>
+
+    <div class="grid grid-cols-2 gap-8">
+        <app-button
+            [primary]="true"
+            [large]="true"
+            (onClick)="handleDelete()"
+        >
+            Xóa
+        </app-button>
+        <button
+            class="p-[9px_12px] text-[16px] uppercase border-[1px] border-solid border-current rounded-[4px] transition-all duration-[0.3s] ease-linear hover:text-[var(--primary-color)] hover:border-current"
+            (click)="handleClose()"
+        >
+            Hủy
+        </button>
+    </div>
+</div>

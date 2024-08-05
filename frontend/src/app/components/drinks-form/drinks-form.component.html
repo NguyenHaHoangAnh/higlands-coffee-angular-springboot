@@ -1,0 +1,120 @@
+<div>
+    <h1 class="mb-[32px] text-[32px] font-bold text-center">Thông tin đồ uống</h1>
+
+    <form class="relative" 
+    [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-[240px_auto] gap-8">
+            <!-- Image preview -->
+            <img class="w-[240px] h-[240px] border-[1px] border-solid border-[var(--border-color)]" [src]="imagePreview" alt="Image">
+            <div class="">
+                <!-- Name -->
+                <app-form-item [inline]="true">
+                    <app-form-label [for]="'drinks-name'">Tên:</app-form-label>
+                    <app-form-control
+                        [error]="form.controls['name'].dirty
+                            && form.controls['name'].errors?.['required']"
+                        [message]="'Vui lòng điền tên'"
+                    >
+                        <input
+                            class="p-[4px_8px] w-full h-[var(--input-height)] rounded-[4px] border-[1px] border-solid border-[var(--border-color)] transition-all duration-[0.3s] ease-linear [&.ng-invalid.ng-dirty]:border-red-600 [&.ng-invalid.ng-dirty]:focus:shadow-[0_0_4px_1px_rgba(255,0,0,0.5)] hover:border-[#40a9ff] focus:border-[#40a9ff] [&:not(.ng-invalid)]:focus:shadow-[0_0_4px_1px_#40a9ff]"
+                            id="drinks-name"
+                            type="text"
+                            formControlName="name"
+                            placeholder="Tên"
+                        >
+                    </app-form-control>
+                </app-form-item>
+                <!-- Image url -->
+                <app-form-item [inline]="true">
+                    <app-form-label [for]="'drinks-image'">URL Ảnh:</app-form-label>
+                    <app-form-control
+                        [error]="form.controls['image'].dirty
+                            && form.controls['image'].errors?.['required']"
+                        [message]="'Vui lòng điền URL ảnh'"
+                    >
+                        <input
+                            class="p-[4px_8px] w-full h-[var(--input-height)] rounded-[4px] border-[1px] border-solid border-[var(--border-color)] transition-all duration-[0.3s] ease-linear [&.ng-invalid.ng-dirty]:border-red-600 [&.ng-invalid.ng-dirty]:focus:shadow-[0_0_4px_1px_rgba(255,0,0,0.5)] hover:border-[#40a9ff] focus:border-[#40a9ff] [&:not(.ng-invalid)]:focus:shadow-[0_0_4px_1px_#40a9ff]"
+                            id="drinks-image"
+                            type="text"
+                            formControlName="image"
+                            placeholder="URL Ảnh"
+                        >
+                    </app-form-control>
+                </app-form-item>
+                <!-- Description -->
+                <app-form-item [inline]="true">
+                    <app-form-label [for]="'drinks-description'">Mô tả:</app-form-label>
+                    <app-form-control
+                        [error]="form.controls['description'].dirty
+                            && form.controls['description'].errors?.['required']"
+                        [message]="'Vui lòng điền mô tả'"
+                    >
+                        <textarea
+                            class="p-[4px_8px] w-full h-[80px] rounded-[4px] border-[1px] border-solid border-[var(--border-color)] transition-all duration-[0.3s] ease-linear [&.ng-invalid.ng-dirty]:border-red-600 [&.ng-invalid.ng-dirty]:focus:shadow-[0_0_4px_1px_rgba(255,0,0,0.5)] hover:border-[#40a9ff] focus:border-[#40a9ff] [&:not(.ng-invalid)]:focus:shadow-[0_0_4px_1px_#40a9ff]"
+                            id="drinks-description"
+                            formControlName="description"
+                            placeholder="Mô tả"
+                        ></textarea>
+                    </app-form-control>
+                </app-form-item>
+                <!-- Price -->
+                <div class="flex">
+                    <app-form-item [inline]="true" class="mr-4">
+                        <app-form-label [for]="'drinks-price-s'">Size S:</app-form-label>
+                        <app-form-control
+                            [error]="form.controls['price_s'].dirty
+                                && form.controls['price_s'].errors?.['required']"
+                            [message]="'Vui lòng điền mô giá tiền'"
+                        >
+                            <input
+                                class="flex-1 p-[4px_8px] h-[var(--input-height)] rounded-[4px] border-[1px] border-solid border-[var(--border-color)] transition-all duration-[0.3s] ease-linear [&.ng-invalid.ng-dirty]:border-red-600 [&.ng-invalid.ng-dirty]:focus:shadow-[0_0_4px_1px_rgba(255,0,0,0.5)] hover:border-[#40a9ff] focus:border-[#40a9ff] [&:not(.ng-invalid)]:focus:shadow-[0_0_4px_1px_#40a9ff]"
+                                id="drinks-price-s"
+                                type="text"
+                                formControlName="price_s"
+                                placeholder="Giá"
+                            >
+                        </app-form-control>
+                    </app-form-item>
+                    <app-form-item [inline]="true" class="mr-4">
+                        <app-form-label [for]="'drinks-price-m'">Size M:</app-form-label>
+                        <app-form-control
+                            [error]="form.controls['price_m'].dirty
+                                && form.controls['price_m'].errors?.['required']"
+                            [message]="'Vui lòng điền mô giá tiền'"
+                        >
+                            <input
+                                class="flex-1 p-[4px_8px] h-[var(--input-height)] rounded-[4px] border-[1px] border-solid border-[var(--border-color)] transition-all duration-[0.3s] ease-linear [&.ng-invalid.ng-dirty]:border-red-600 [&.ng-invalid.ng-dirty]:focus:shadow-[0_0_4px_1px_rgba(255,0,0,0.5)] hover:border-[#40a9ff] focus:border-[#40a9ff] [&:not(.ng-invalid)]:focus:shadow-[0_0_4px_1px_#40a9ff]"
+                                id="drinks-price-m"
+                                type="text"
+                                formControlName="price_m"
+                                placeholder="Giá"
+                            >
+                        </app-form-control>
+                    </app-form-item>
+                    <app-form-item [inline]="true">
+                        <app-form-label [for]="'drinks-price-l'">Size L:</app-form-label>
+                        <app-form-control
+                            [error]="form.controls['price_l'].dirty
+                                && form.controls['price_l'].errors?.['required']"
+                            [message]="'Vui lòng điền mô giá tiền'"
+                        >
+                            <input
+                                class="flex-1 p-[4px_8px] h-[var(--input-height)] rounded-[4px] border-[1px] border-solid border-[var(--border-color)] transition-all duration-[0.3s] ease-linear [&.ng-invalid.ng-dirty]:border-red-600 [&.ng-invalid.ng-dirty]:focus:shadow-[0_0_4px_1px_rgba(255,0,0,0.5)] hover:border-[#40a9ff] focus:border-[#40a9ff] [&:not(.ng-invalid)]:focus:shadow-[0_0_4px_1px_#40a9ff]"
+                                id="drinks-price-l"
+                                type="text"
+                                formControlName="price_l"
+                                placeholder="Giá"
+                            >
+                        </app-form-control>
+                    </app-form-item>
+                </div>
+            </div>
+        </div>
+        <app-button
+            [primary]="true"
+            [large]="true"
+        >
+            Lưu
+        </app-button>
+    </form>
+</div>

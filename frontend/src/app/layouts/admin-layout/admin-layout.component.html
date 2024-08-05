@@ -1,0 +1,11 @@
+<div>
+    <app-header />
+    <main class="relative flex mt-[var(--header-height)] w-full">
+        <app-sidebar />
+        <div class="pl-[var(--sidebar-width)] w-full bg-gray-100">
+            <div class="p-16">
+                <router-outlet />
+            </div>
+        </div>
+    </main>
+</div>

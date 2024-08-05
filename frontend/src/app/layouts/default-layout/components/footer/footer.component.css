@@ -1,0 +1,11 @@
+.footer-wrapper {
+    padding-top: 18px;
+    padding-bottom: 25px;
+    color: white;
+    background-color: var(--brown-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+}

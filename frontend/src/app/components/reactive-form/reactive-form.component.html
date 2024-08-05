@@ -1,0 +1,68 @@
+<div class="form-wrapper">
+    <app-button
+        class="form-back-btn"
+        [text]="true"
+        [routerLink]="config.routes.home"
+    >
+        Quay lại
+    </app-button>
+    <div class="form-container">
+        <h1 class="mb-8 text-4xl font-bold form-header">Reactive Form</h1>
+        <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <app-form-item>
+                <app-form-label [for]="'username'">Username:</app-form-label>
+                <app-form-control 
+                    [error]="form.controls['username'].dirty 
+                        && form.controls['username'].errors?.['required']" 
+                    [message]="'Please input name'"
+                >
+                    <input 
+                        class="form-input"
+                        id="username" 
+                        type="text" 
+                        formControlName="username" 
+                        placeholder="Username">
+                </app-form-control>
+            </app-form-item>
+            <app-form-item>
+                <app-form-label [for]="'password'">Password:</app-form-label>
+                <app-form-control 
+                    [error]="form.controls['password'].dirty 
+                        && form.controls['password'].errors?.['required']" 
+                    [message]="'Please input password'"
+                >
+                    <input 
+                        class="form-input"
+                        id="password" 
+                        type="password" 
+                        formControlName="password" 
+                        placeholder="Password"
+                        (ngModelChange)="updateConfirmPasswordValidator()"
+                    >
+                </app-form-control>
+            </app-form-item>
+            <app-form-item>
+                <app-form-label [for]="'confirmPassword'">Confirm Password:</app-form-label>
+                <app-form-control 
+                    [error]="form.controls['confirmPassword'].dirty 
+                        && (form.controls['confirmPassword'].errors?.['required'] 
+                        || form.controls['confirmPassword'].errors?.['confirm'])"
+                    [message]="form.controls['confirmPassword'].errors?.['required'] 
+                        ? 'Please confirm your password' 
+                        : form.controls['confirmPassword'].errors?.['confirm'] 
+                        ? 'Two password are not matched'
+                        : ''"
+                >
+                    <input 
+                        class="form-input"
+                        id="confirmPassword" 
+                        type="password" 
+                        formControlName="confirmPassword" 
+                        placeholder="Confirm Password"
+                    >
+                </app-form-control>
+            </app-form-item>
+            <app-button class="form-submit-btn" [large]="true" [primary]="true">Submit</app-button>
+        </form>
+    </div>
+</div>

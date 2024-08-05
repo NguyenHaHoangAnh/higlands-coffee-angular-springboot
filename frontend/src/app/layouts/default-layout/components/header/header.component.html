@@ -1,0 +1,59 @@
+<header class="absolute top-0 left-0 w-full bg-[var(--primary-color)] wrapper header-wrapper">
+    <div class="header-container">
+        <!-- Logo -->
+        <a [routerLink]="config.routes.home" class="header-logo-wrapper">
+            <img class="header-logo" [src]="images.logo_white" alt="logo">
+            <span class="header-logo-text">Highlands Coffee</span>
+        </a>
+        <!-- Nav -->
+        <nav class="nav-list">
+            <a 
+                class="nav-item"
+                *ngFor="let navItem of navList"
+                [routerLink]="navItem?.to"
+            >
+                {{navItem.name}}
+                <div 
+                    class="menu" 
+                    *ngIf="navItem.children" 
+                    (click)="$event.stopPropagation()"
+                >
+                    <div class="menu-section" *ngFor="let menuItem of navItem.children">
+                        <a 
+                            class="menu-section-header"
+                            [routerLink]="menuItem?.to"
+                        >
+                            {{menuItem.name}}
+                        </a>
+                        <nav class="sub-menu">
+                            <a 
+                                class="sub-menu-item"
+                                *ngFor="let subMenuItem of menuItem.children"
+                                [routerLink]="subMenuItem?.to"
+                            >
+                                {{subMenuItem.name}}
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </a>
+        </nav>
+        <!-- Action -->
+        <div class="header-action">
+            <ng-template [ngIf]="user">
+                <div class="flex flex-col items-end">
+                    <div class="text-white font-semibold">{{user?.name}}</div>
+                    <div class="text-[12px] text-slate-200">{{user?.role}}</div>
+                </div>
+                <app-menu [data]="menu" (onChange)="handleChange($event)">
+                    <app-image class="[&>img]:ml-4 [&>img]:w-[40px] [&>img]:h-[40px] [&>img]:rounded-full [&>img]:overflow-hidden" />
+                </app-menu>
+            </ng-template>
+        
+            <ng-template [ngIf]="!user">
+                <app-button [to]="config.routes.login" [second]="true">Đăng nhập</app-button>
+            </ng-template>
+        </div>
+    </div>
+    
+</header>

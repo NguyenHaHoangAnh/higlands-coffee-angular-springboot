@@ -1,0 +1,15 @@
+.form-control-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control-content {
+    display: flex;
+}
+
+small {
+    position: absolute;
+    top: calc(100% + 8px);
+    color: red;
+}

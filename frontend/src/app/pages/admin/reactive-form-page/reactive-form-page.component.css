@@ -1,0 +1,45 @@
+.page-wrapper {
+    /* display: grid;
+    grid-template-columns: 60% auto; */
+    /* margin-top: 100px; */
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 68% auto;
+}
+
+.page-form {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    height: 100dvh;
+}
+
+/* .table-wrapper {
+    margin-top: 50px;
+}
+
+.table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+tr th,
+tr td {
+    text-align: left;
+    padding: 4px 2px;
+    border-bottom: 1px solid black;
+}
+
+tr th:first-child,
+tr th:last-child,
+tr td:first-child,
+tr td:last-child {
+    text-align: center;
+} */
+
+.page-img {
+    background: url('../../../../assets/images/login_image.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}

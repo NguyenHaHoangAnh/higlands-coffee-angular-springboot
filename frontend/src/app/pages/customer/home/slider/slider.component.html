@@ -1,0 +1,26 @@
+<div class="slider-wrapper">
+    <div class="slider-container">
+        <div class="slider-content">
+            <img 
+                class="slider"
+                [ngClass]="{
+                    active: i === currentIndex
+                }"
+                *ngFor="let slider of sliders; let i = index" 
+                [src]="slider" alt="slider"
+                [style.left]="-100 * currentIndex + '%'"
+            >
+        </div>
+        <div class="btn-wrapper">
+            <button 
+                class="slider-btn"
+                [ngClass]="{
+                    active: i === currentIndex
+                }"
+                *ngFor="let slider of sliders; let i = index" 
+                (click)="setIndex(i)"
+            >
+            </button>
+        </div>
+    </div>
+</div>

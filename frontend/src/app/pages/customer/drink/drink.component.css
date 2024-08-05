@@ -1,0 +1,4 @@
+.size.active {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}

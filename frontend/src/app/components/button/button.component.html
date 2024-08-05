@@ -1,0 +1,56 @@
+@if (to) {
+    <button 
+        class="button"
+        [ngClass]="{
+            primary,
+            second,
+            text,
+            border,
+            round,
+            large,
+            medium
+        }" 
+        [routerLink]="'/' + to" 
+        [state]="state"
+        (click)="handleClick()"
+    >
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </button>
+} @else if (href) {
+    <a 
+        class="button"
+        [ngClass]="{
+            primary,
+            second,
+            text,
+            border,
+            round,
+            large,
+            medium
+        }" 
+        [routerLink]="'/' + href" 
+        [state]="state"
+        (click)="handleClick()"
+    >
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </a>
+} @else {
+    <button 
+        class="button"
+        [ngClass]="{
+            primary,
+            second,
+            text,
+            border,
+            round,
+            large,
+            medium
+        }" 
+        (click)="handleClick()"
+    >
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </button>
+}
+<ng-template #content>
+    <ng-content />
+</ng-template>

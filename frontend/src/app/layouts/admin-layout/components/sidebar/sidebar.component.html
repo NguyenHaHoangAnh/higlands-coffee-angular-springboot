@@ -1,0 +1,9 @@
+<c-sidebar #sidebar ="cSidebar" class="fixed left-0 flex flex-col p-[12px] w-[var(--sidebar-width)] bg-white border-r-[1px] border-solid border-[var(--border-color)] sidebar-wrapper">
+    <!-- <c-sidebar-header class="">
+        <c-sidebar-brand>Sidebar Brand</c-sidebar-brand>
+    </c-sidebar-header> -->
+    <c-sidebar-nav class="flex flex-col flex-1" [navItems]="navItems" />
+    <c-sidebar-footer cSidebarToggle="sidebar" class="border-t border-solid border-[var(--border-color)]" toggle="unfoldable" style="cursor: pointer;">
+        <app-button [text]="true" [to]="'/'">Thoát</app-button>
+    </c-sidebar-footer>
+</c-sidebar>

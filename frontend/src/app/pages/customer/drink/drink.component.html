@@ -1,0 +1,39 @@
+<div class="pt-[95px] pb-[50px] wrapper">
+    <div *ngIf="data" class="md:w-3/5">
+        <h1 class="mb-8 text-[45px] leading-[55px] text-[var(--brown-color)] font-bold uppercase">
+            {{data.name}}
+        </h1>
+        
+        <div class="grid grid-cols-2 gap-8">
+            <div class="border border-solid border-[var(--border-color)]">
+                <img [src]="data.image" [alt]="data.name">
+            </div>
+            <div>
+                <p class="mb-4 text-[var(--brown-color)] leading-[24px]">
+                    {{data.description}}
+                </p>
+                <app-button [href]="'/'" class="mb-[50px] w-full h-[90px] bg-[var(--primary-color)] flex justify-center items-center rounded-[8px] [&>a]:text-white [&>a]:!text-[32px] bg-[#cf181b] shadow-[4px_4px_10px_4px_rgba(0,0,0,0.3)]">
+                    Đặt mua ngay
+                </app-button>
+                <div class="flex mb-8 items-center">
+                    <div>Size:</div>
+                    <div class="flex ml-4">
+                        <div class="mx-[2px] w-[30px] h-[30px] border border-solid border-[var(--border-color)] flex justify-center items-center transition-all duration-[0.3s] ease-linear hover:text-[var(--primary-color)] hover:border-[var(--prmary-color)] cursor-pointer size" [ngClass]="{
+                            active: currentSize.toLowerCase() === 'small'
+                        }" (click)="setSize(Size.Small)">{{data.small.size}}</div>
+                        <div class="mx-[2px] w-[30px] h-[30px] border border-solid border-[var(--border-color)] flex justify-center items-center transition-all duration-[0.3s] ease-linear hover:text-[var(--primary-color)] hover:border-[var(--prmary-color)] cursor-pointer size" [ngClass]="{
+                            active: currentSize.toLowerCase() === 'medium'
+                        }" (click)="setSize(Size.Medium)">{{data.medium.size}}</div>
+                        <div class="mx-[2px] w-[30px] h-[30px] border border-solid border-[var(--border-color)] flex justify-center items-center transition-all duration-[0.3s] ease-linear hover:text-[var(--primary-color)] hover:border-[var(--prmary-color)] cursor-pointer size" [ngClass]="{
+                            active: currentSize.toLowerCase() === 'large'
+                        }" (click)="setSize(Size.Large)">{{data.large.size}}</div>
+                    </div>
+                </div>
+                <div>
+                    Giá:
+                    <strong class="text-[var(--brown-color)]">{{getPrice() | currency : 'VND' : 'VNĐ' : '1.0-0' : 'vi'}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

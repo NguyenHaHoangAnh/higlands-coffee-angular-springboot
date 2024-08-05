@@ -1,0 +1,49 @@
+<div class="w-full">
+    <app-card [title]="'Tea'">
+        <app-table *ngIf="data" [headers]="headers">
+            <tr 
+                *ngFor="let item  of data; let i = index"
+            >
+                <td class="p-[10px] text-center">{{i + 1}}</td>
+                <td class="p-[10px]" [ngStyle]="{
+                    'background-image': 'url(' + item.image + ')',
+                    'background-position': 'left center',
+                    'background-size': 'contain',
+                    'background-repeat': 'no-repeat',
+                    'mix-blend-mode': 'multiply'
+                }">
+                <td class="p-[10px] ">{{item.name}}</td>
+                <td class="p-[10px] ">{{item.createdAt | date: 'dd/MM/YYYY'}}</td>
+                <td class="p-[10px] ">{{item.updatedAt | date: 'dd/MM/YYYY'}}</td>
+                <td class="flex justify-center p-[10px]">
+                    <app-button
+                        class="block mx-[4px] w-16 h-16"
+                        [round]="true"
+                        [primary]="true"
+                        (onClick)="handleEdit(item)"
+                    >
+                        <fa-icon [icon]="faPen" />
+                    </app-button>
+                    <app-button
+                        class="block mx-[4px] w-16 h-16"
+                        [round]="true"
+                        [primary]="true"
+                        (onClick)="handleDelete(item)"
+                    >
+                        <fa-icon [icon]="faTrashCan" />
+                    </app-button>
+                </td>
+            </tr>
+        </app-table>
+        <app-button
+            class="block mt-8"
+            [primary]="true"
+            (onClick)="handleAdd()"
+        >Thêm</app-button>
+    </app-card>
+    <!-- Modal -->
+    <app-modal *ngIf="modalState !== 'hide'" (onClose)="setModalState('hide')">
+        <app-drinks-form *ngIf="modalState === 'form'" [data]="item" [service]="getService()" (onUpdate)="handleUpdate($event)" (onClose)="setModalState('hide')" />
+        <app-delete-form *ngIf="modalState === 'delete'" [data]="item" [service]="getService()" (onUpdate)="handleUpdate($event)" (onClose)="setModalState('hide')" />
+    </app-modal>
+</div>
